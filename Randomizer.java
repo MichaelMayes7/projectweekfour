@@ -55,14 +55,16 @@ public class Randomizer {
 
     }
 
-    @Override
-    public int compareTo(RandomNumber numbers) {
-        return Integer.compare(num, num);
+
+    public int compareTo(Object o) {
+        return 0;
     }
+
+    
 
 }
 
-class RandomNumber implements Comparable {
+class RandomNumber extends Randomizer implements Comparable {
     
     private int num = 0;
 
@@ -83,10 +85,22 @@ class RandomNumber implements Comparable {
         this.num = num;
     } 
 
-   
-    @Override
-    public int compareTo(RandomNumber numbers) {
-        return Integer.compare(num, num);
+    
+    public int compareTo(RandomNumber rn) {
+        if(this.num == rn.num) {
+            return 0;
+        } else if (this.num > rn.num) {
+            return 1;
+        } else {
+            return -1;
+        }
+
     }
+
+   
+    
+    // public int compareTo(Object o) {
+    //     return 0;
+    // }
     
 }
